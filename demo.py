@@ -9,6 +9,10 @@ from dash import State, dash_table, dcc, html, no_update
 
 from lib.ui_elements import alerts, buttons
 
+"""
+This is a demo app to show how to use Dash with Bootstrap.
+The file is used in case the demo in the plotly_dash.ipynb isn't working
+"""
 # initial app setup
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
