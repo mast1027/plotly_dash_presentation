@@ -1,28 +1,22 @@
+import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
-import dash_bootstrap_components as dbc
+from dash import Dash  # main class
+from dash import Input  # input elements for callbacks
+from dash import Output  # output elements for callbacks
+from dash import callback  # callback on events, e.g. clicks
+from dash import State, dash_table, dcc, html, no_update
 
-
-from dash import (
-    Dash,  # main class
-    html,  # html elements
-    dcc,  # dash core (JS-Ui) components          https://dash.plotly.com/dash-core-components
-    callback,  # callback on events, e.g. clicks
-    Output,  # output elements for callbacks
-    Input,  # input elements for callbacks
-    dash_table,
-    no_update,
-    State,
-)
-
-from lib.ui_elements import buttons, alerts
+from lib.ui_elements import alerts, buttons
 
 # initial app setup
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
+# get data
 df = pd.read_csv(
     "https://raw.githubusercontent.com/plotly/datasets/master/gapminder_unfiltered.csv"
 )
+
 # App layout
 app.layout = dbc.Container(
     [
